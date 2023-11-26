@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Jose Carlos Mariátegui</title>
+
+      <link rel="shortcut icon" href="/assets/img/svg/Logo_JC.png" type="image/x-icon">
+      <!-- Estilos Principales -->
+
+      <link rel="stylesheet" href="/assets/css/base.css">
+
+      <link rel="stylesheet" href="/assets/css/inicio.css">
+
+      <link rel="stylesheet" href="/assets/css/modules/footer.css">
+
+      <link rel="stylesheet" href="/assets/css/modules/chat.css">
+
+      <!-- Scripts Encabezados -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/e94362e79a.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+      <!-- Loading -->
+      <div class="loader-container" id="loader">
+            <div class="loader">
+                  <img src="/assets/img/svg/Logo_JC.png" class="rounded-full h-28 w-28" alt />
+                  <p class="loading-text">
+                        Jose Carlos Mariátegui
+                  </p>
+            </div>
+      </div>
+
+      <!--CHAT-->
+
+      <div class="chat-bar-collapsible">
+            <button id="chat-button" type="button" class="collapsible">JCM_Ayuda
+                  <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o" id="cerrar"></i>
+            </button>
+
+            <div class="contenedor-bot">
+                  <div class="full-chat-block">
+                        <!-- Contenedor de mensaje -->
+                        <div class="outer-container">
+                              <div class="chat-container">
+                                    <!-- Mensajes -->
+                                    <div id="chatbox">
+                                          <h5 id="chat-timestamp"></h5>
+                                          <p id="botStarterMessage" class="botText">
+                                                <span>Cargando...</span>
+                                          </p>
+                                    </div>
+
+                                    <!-- Usuario -->
+                                    <div class="chat-bar-input-block">
+                                          <div id="userInput">
+                                                <input id="textInput" class="input-box" type="text" name="msg"
+                                                      placeholder="Escribe tu mensaje">
+                                                <p></p>
+                                          </div>
+
+                                          <div class="chat-bar-icons">
+                                                <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                                      onclick="heartButton()"></i>
+                                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                                      onclick="sendButton()"></i>
+                                          </div>
+                                    </div>
+
+                                    <div id="chat-bar-bottom">
+                                          <p></p>
+                                    </div>
+
+                              </div>
+                        </div>
+
+                  </div>
+            </div>
+
+      </div>
+      <!-- Modal -->
+      <div class="wrapper">
+            <img src="/assets/img/svg/Logo_JC.png" alt="">
+            <div class="contentModal" id="contentModal">
+
+            </div>
+            <div class="buttons">
+                  <a href="#" class="hero__cta">Saber Más</a>
+                  <a class="hero__cta" id="cerrar">Cerrar</a>
+            </div>
+      </div>
+      <section class="modal">
+            <div class="modal__container">
+                  <img src="/assets/img/svg/Logo_JC.png" alt="clase" class="imagen">
+                  <div class="modal_contenerdor" id="modal_container">
+
+                  </div>
+                  <a class="modal__close">Cerrar Ventana</a>
+            </div>
+      </section>
+
+      <!--======================== HEADER + NAV ========================-->
+      <header class="header">
+            <div class="container-nav">
+                  <div class="header-main">
+                        <div class="logo">
+                              <a href="#"><i class="fa-solid fa-school"></i>La Chira</a>
+                        </div>
+                        <div class="open-nav-menu">
+                              <span></span>
+                        </div>
+                        <div class="menu-overlay"></div>
+                        <!-- navigation menu start -->
+                        <nav class="nav-menu">
+                              <div class="close-nav-menu">
+                                    <img src="/assets/img/svg/close.svg" alt="close" />
+                              </div>
+                              <ul class="menu">
+                                    <li class="menu-item">
+                                          <a href="#">Inicio</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                          <a href="#" data-toggle="sub-menu">Nosotros <i class="plus"></i></a>
+                                          <ul class="sub-menu">
+                                                <li class="menu-item"><a href="#">Historia</a></li>
+                                                <li class="menu-item"><a href="#">Mision y Vision</a></li>
+                                                <li class="menu-item"><a href="#">Plana Docente</a></li>
+                                                <li class="menu-item"><a href="#">Gestión Académica</a></li>
+                                          </ul>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                          <a href="#" data-toggle="sub-menu">Académicos <i class="plus"></i></a>
+                                          <ul class="sub-menu">
+                                                <li class="menu-item"><a href="#">Primaria</a></li>
+                                                <li class="menu-item"><a href="#">Secundaria</a></li>
+                                          </ul>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children">
+                                          <a href="#" data-toggle="sub-menu">Calendarización <i class="plus"></i></a>
+                                          <ul class="sub-menu">
+                                                <li class="menu-item"><a href="#">Actividades</a></li>
+                                                <li class="menu-item"><a href="#">Calendarios</a></li>
+                                                <li class="menu-item"><a href="#">Horarios</a></li>
+                                          </ul>
+                                    </li>
+                                    <li class="menu-item">
+                                          <a href="/Galeria.html">Galería</a>
+                                    </li>
+                                    <li class="menu-item">
+                                          <a href="/Noticias.html">Noticias</a>
+                                    </li>
+                                    <li class="menu-item">
+                                          <a href="/Admision.html">Admisión</a>
+                                    </li>
+                                    <li class="menu-item menu2">
+                                          <a href="#">Login</a>
+                                    </li>
+                              </ul>
+
+                        </nav>
+
+                        <!-- navigation menu end -->
+                  </div>
+            </div>
+      </header>
+
+      <!-- Portada -->
+
+      <section class="home" id="home">
+
+            <div class="content">
+                  <h3>Bienvenidos a <br><span>Jose Carlos Mariategui</span></h3>
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur minus aut, in maiores quidem
+                  </p>
+                  <a href="#" class="btn">Conócenos</a>
+            </div>
+
+            <div class="image">
+                  <img src="/assets/img/svg/Logo_JC.png" alt="">
+            </div>
+
+            <div class="custom-shape-divider-bottom-1684324473">
+                  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                        preserveAspectRatio="none">
+                        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                              class="shape-fill"></path>
+                  </svg>
+            </div>
+
+      </section>
+
+      <!-- Sobre Nosotros -->
+
+      <section class="about" id="about">
+
+            <h1 class="heading"> <span>Sobre</span> nosotros</h1>
+
+            <div class="row">
+
+                  <div class="image">
+                        <img src="/assets/img/clases/Institucion.png" alt="">
+                  </div>
+                  <div class="content">
+                        <h3>Explorar, crecer y prosperar juntos</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam amet nam distinctio sunt
+                              facilis,
+                              quia accusamus sapiente at quod iure ea commodi? Labore, culpa! Voluptates delectus magni
+                              atque
+                              suscipit earum.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam amet nam distinctio sunt
+                              facilis,
+                              quia accusamus sapiente at quod iure ea commodi? Labore, culpa! Voluptates delectus magni
+                              atque
+                              suscipit earum.</p>
+                        <a href="#" class="btn">Más</a>
+                  </div>
+
+            </div>
+
+      </section>
+
+      <!-- Tarjetas -->
+
+      <section style="height: max-content;">
+            <div class="tarjetCars">
+                  <h1 class="heading">Educación <span>y Aprendizaje</span></h1>
+                  <p class="cards2">Aprender es algo que hacemos todos
+                        los días...</p>
+            </div>
+
+            <div class="containerTarjet">
+                  <div class="tarjets tarjets-cyan tarjets-push">
+                        <h2 class="tarjets-cyan">Innovacion</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, fugiat recusandae. Saepe!
+                        </p>
+                        <img src="/assets/img/svg/subject-2.png" alt="Supervisor">
+                  </div>
+
+                  <div class="tarjets tarjets-red tarjets-push">
+                        <h2 class="tarjets-red">Enseñanza</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, fugiat recusandae. Saepe!
+                        </p>
+                        <img src="/assets/img/svg/subject-3.png" alt="teambuilder">
+                  </div>
+
+                  <div class="tarjets tarjets-blue tarjets-push">
+                        <h2 class="tarjets-blue">Valores</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, fugiat recusandae. Saepe!
+                        </p>
+                        <img src="/assets/img/svg/subject-4.png" alt="teambuilder">
+                  </div>
+
+                  <div class="tarjets tarjets-orange tarjets-push">
+                        <h2 class="tarjets-orange">Respeto</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, fugiat recusandae. Saepe!
+                        </p>
+                        <img src="/assets/img/svg/subject-1.png" alt="teambuilder">
+                  </div>
+            </div>
+      </section>
+
+      <!-- PROFESORES -->
+
+      <section class="teacher" id="teacher">
+
+            <h1 class="heading">Nuestros <span> Docentes</span></h1>
+
+            <div class="box-container">
+
+                  <div class="box">
+                        <img src="/assets/img/svg/Profile.png" alt="">
+                        <h3>Profesor #</h3>
+                        <p>Docente</p>
+                        <div class="share">
+                              <a href="#" class="btn">Más</a>
+                        </div>
+                  </div>
+                  <div class="box">
+                        <img src="/assets/img/svg/Profile.png" alt="">
+                        <h3>Profesor #</h3>
+                        <p>Docente</p>
+                        <div class="share">
+                              <a href="#" class="btn">Más</a>
+                        </div>
+                  </div>
+
+                  <div class="box">
+                        <img src="/assets/img/svg/Profile.png" alt="">
+                        <h3>Profesor #</h3>
+                        <p>Docente</p>
+                        <div class="share">
+                              <a href="#" class="btn">Más</a>
+                        </div>
+                  </div>
+
+                  <div class="box">
+                        <img src="/assets/img/svg/Profile.png" alt="">
+                        <h3>Profesor #</h3>
+                        <p>Docente</p>
+                        <div class="share">
+                              <a href="#" class="btn">Más</a>
+                        </div>
+                  </div>
+
+            </div>
+
+      </section>
+
+      <!-- ACTIVIDADES -->
+
+      <section class="activities">
+
+            <h1 class="heading"><span>Actividades</span></h1>
+
+            <div class="box-container">
+
+
+                  <div class="box">
+                        <img src="/assets/img/formacion/formacion2.jpeg" alt="">
+                        <h3>Eventos</h3>
+                  </div>
+
+                  <div class="box">
+                        <img src="/assets/img/img-secundaria/cancha.jpeg" alt="">
+                        <h3>Juegos</h3>
+                  </div>
+
+                  <div class="box">
+                        <img src="/assets/img/img-secundaria/clases2.jpeg" alt="">
+                        <h3>Organizaciones</h3>
+                  </div>
+
+
+            </div>
+
+      </section>
+
+      <!-- GALERIA -->
+
+      <section class="seccionCarrusel">
+            <h1 class="heading">Nuestra <span>Galeria</span></h1>
+            <div class="carrusel-warp">
+                  <i id="left" class="fa-solid fa-angle-left"></i>
+                  <div class="carousel">
+                        <img src="/assets/img/img-primaria/primaria.jpeg" alt="img" draggable="false">
+                        <img src="/assets/img/img-primaria/Primaria.jpg" alt="img" draggable="false">
+                        <img src="/assets/img/img-primaria/primaria2.jpeg" alt="img" draggable="false">
+                        <img src="/assets/img/img-primaria/primariageneral.jpeg" alt="img" draggable="false">
+                        <img src="/assets/img/img-secundaria/calle.jpeg" alt="img" draggable="false">
+                        <img src="/assets/img/img-secundaria/clases4.jpeg" alt="img" draggable="false">
+                        <img src="/assets/img/formacion/formacion2.jpeg" alt="img" draggable="false">
+                        <img src="/assets/img/formacion/formacion4.jpeg" alt="img" draggable="false">
+                        <img src="/assets/img/formacion/formacion5.jpeg" alt="img" draggable="false">
+                  </div>
+                  <i id="right" class="fa-solid fa-angle-right"></i>
+            </div>
+      </section>
+
+      <!-- TESTIMONIOS -->
+
+      <section class="testimonios">
+            <div class="container">
+
+                  <div class="contents-wraper">
+                        <h1 class="testimoniosText">Testimonios</h1>
+
+                        <section class="testRow">
+
+                              <div class="testItem">
+                                    <img src="/assets/img/svg/Profile.png">
+                                    <h3>Persona 1</h3>
+                                    <h4>Cargo | Responsabilidad</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                          incididunt ut
+                                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                          exercitation
+                                          ullamco
+                                          laboris nisi ut aliquip ex ea commodo consequat.</p>
+                              </div>
+
+                              <div class="testItem">
+                                    <img src="/assets/img/svg/Profile.png">
+                                    <h3>Persona 2</h3>
+                                    <h4>Cargo | Responsabilidad</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                          tempor incididunt ut
+                                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                          exercitation
+                                          ullamco
+                                          laboris nisi ut aliquip ex ea commodo consequat.</p>
+                              </div>
+
+                              <div class="testItem">
+                                    <img src="/assets/img/svg/Profile.png">
+                                    <h3>Persona 3</h3>
+                                    <h4>Cargo | Responsabilidad</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                          incididunt ut
+                                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                          exercitation
+                                          ullamco
+                                          laboris nisi ut aliquip ex ea commodo consequat.</p>
+                              </div>
+
+                              <div class="testItem">
+                                    <img src="/assets/img/svg/Profile.png">
+                                    <h3>Persona 4</h3>
+                                    <h4>Cargo | Responsabilidad</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                          incididunt ut
+                                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                          exercitation
+                                          ullamco
+                                          laboris nisi ut aliquip ex ea commodo consequat.</p>
+                              </div>
+
+                              <div class="testItem">
+                                    <img src="/assets/img/svg/Profile.png">
+                                    <h3>Persona 5</h3>
+                                    <h4>Cargo | Responsabilidad</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                          incididunt ut
+                                          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                          exercitation
+                                          ullamco
+                                          laboris nisi ut aliquip ex ea commodo consequat.</p>
+                              </div>
+
+                        </section>
+
+                        <section class="indicators">
+                              <div class="dot active" attr='0' onclick="switchTest(this)"></div>
+                              <div class="dot" attr='1' onclick="switchTest(this)"></div>
+                              <div class="dot" attr='2' onclick="switchTest(this)"></div>
+                              <div class="dot" attr='3' onclick="switchTest(this)"></div>
+                              <div class="dot" attr='4' onclick="switchTest(this)"></div>
+                        </section>
+
+                  </div>
+            </div>
+      </section>
+
+      <!-- CONTACTANOS -->
+
+      <section class="contact" id="contact">
+
+            <h1 class="heading"> <span>Contáctanos</span></h1>
+
+            <div class="icons-container">
+
+                  <div class="icons">
+                        <i class="fas fa-clock"></i>
+                        <h3>Abierto desde :</h3>
+                        <p>Lunes a Viernes dessde las: 08:00am - 01:00pm</p>
+                  </div>
+
+                  <div class="icons">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Correo </h3>
+                        <p>josecarlosmariategui@gmail.com</p>
+                  </div>
+
+                  <div class="icons">
+                        <i class="fas fa-phone"></i>
+                        <h3>Teléfonos</h3>
+                        <p>+51 xxx-xxx-xxx</p>
+                        <p>+51 xxx-xxx-xxx</p>
+                  </div>
+
+            </div>
+
+            <div class="row">
+
+                  <div class="image">
+                        <img src="/assets/img/svg/contactus.gif" alt="">
+                  </div>
+
+                  <form action="/validar" method="post">
+                        <h3>Envía tu comentario</h3>
+                        <div class="inputBox">
+                              <input type="text" id="name" name="name" placeholder="Tus Nombres">
+                              <input type="email" id="email" name="email" placeholder="Tu correo">
+                        </div>
+                        <div class="inputBox">
+                              <input type="text" id="subject" name="subject" placeholder="Asunto">
+                        </div>
+                        <textarea name="message" id="message" placeholder="Tu Mensaje" cols="30" rows="10"></textarea>
+                        <button type="submit" id="submit" class="btn">Enviar Comentario</button>
+                  </form>
+
+
+            </div>
+
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+            <div class="container-footer">
+                  <div class="sec aboutus">
+                        <img src="/assets/img/svg/Logo_JC.png" alt="">
+                        <h2>Jose Carlos Mariátegui</h2>
+                        <p>
+                              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias adipisci inventore,
+                              nobis
+                              deleniti magni ducimus neque fuga optio rerum earum.
+                        </p>
+                        <ul class="sci fa-fade">
+                              <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                              <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                        </ul>
+                  </div>
+                  <div class="sec f-links">
+                        <h2>Acerca de</h2>
+                        <ul>
+                              <li><a href="#">Inicio</a></li>
+                              <li><a href="#">Nosotros</a></li>
+                              <li><a href="#">Docentes</a></li>
+                              <li><a href="#">Mision y Vision</a></li>
+                              <li><a href="#">Gestión Académica</a></li>
+
+                        </ul>
+                  </div>
+                  <div class="sec f-links">
+                        <h2>Académicos</h2>
+                        <ul>
+                              <li><a href="#">Primaria</a></li>
+                              <li><a href="#">Secundaria</a></li>
+                        </ul>
+                  </div>
+                  <div class="sec f-links">
+                        <h2>Calendarización</h2>
+                        <ul>
+                              <li><a href="#">Fechas Cívicas</a></li>
+                              <li><a href="#">Actividades</a></li>
+                        </ul>
+                  </div>
+                  <div class="sec f-contact">
+                        <h2>Contáctanos</h2>
+                        <ul class="f-info">
+                              <li>
+                                    <span><i class="fa-solid fa-phone fa-shake"></i></span>
+                                    <p><a href="#">922-843-355</a></p>
+                              </li>
+                              <li>
+                                    <span><i class="fa-solid fa-envelope fa-bounce"></i></span>
+                                    <p><a href="#">josecarlosmariategui@gmail.com</a></p>
+                              </li>
+                        </ul>
+                  </div>
+            </div>
+      </footer>
+      <div class="copyrigthText">
+            <p>Derechos Reservados Jose Carlos Maríategui</p>
+      </div>
+
+
+      <!-- FUNCIONALIDADES -->
+
+      <script src="/assets/js/Loader.js"></script>
+
+      <script src="/assets/js/func/Navbar.js"></script>
+
+      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+      <script src="/assets/js/carrusel.js"></script>
+
+      <script src="/assets/js/Dates.js"></script>
+
+      <script src="/assets/js/Modal.js"></script>
+
+      <script src="/assets/js/Galeria.js"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+      <script src="/assets/js/func/chat.js"></script>
+
+      <script src="/assets/js/func/responses.js"></script>
+</body>
+
+</html>
